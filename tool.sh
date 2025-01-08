@@ -3,7 +3,7 @@
 
 set -e
 SIZE=2500
-TM2=$(realpath "./trimesh2/bin.Linux64")
+# TM2=$(realpath "./trimesh2/bin.Linux64")
 MRG=$(realpath "./merge_obj.sh")
 f_i=$(realpath ${1:-input.svg})
 f_o=$(realpath ${2:-output.obj})
