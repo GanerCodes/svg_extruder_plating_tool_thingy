@@ -1,0 +1,37 @@
+⮌ json ⨡ dumps
+⮌ http.server ⨡ HTTPServer, BaseHTTPRequestHandler
+⮌ websockets.sync.server ⨡ serve as ws_serve
+⮌ time ⨡ sleep
+⮌ hashlib ⨡ sha256
+󰋺("kots", *)
+joon = 󰋺(cpy_dir / ‹Extra/j☾/main.☾›, ⠤‹joon_header transpile›⍭)
+
+𝔥 = 󷺻sha256(⟞).hexdigest()﹕₁₆
+ipv4 = 󷺹 ᑀ⪢ 8⟝ & 0xFFᐛ (4󷸹)ᴙ → ⨝␛.
+
+safej = 󰲣𝐩(x)≕b/y≕p→.is_relative_to(b)⭜p⭝✗
+
+INDEX = 𝑦(␛Ω 󰛔􍡧⁽􋕩ⁱⁿᵈᵉˣ􋕝ʰᵗᵐˡ􋕩⁾ ‹⟦joon_header⟧𝗻⟦transpile(∘"main.j☾")⟧›, "utf-8")
+󱀘 HTTP_Server(BaseHTTPRequestHandler):
+    ⊢ do_POST(𝕊):
+        𝕊.rfile
+        𝚋 = 𝕊.rfile.read(𝑖∘𝕊.headers["content-length"])
+        ᵇ(𝐩(‹public/⟦fn≔𝔥∘𝚋⟧.svg›)≕f, 𝚋)
+        𝕊.send_response∘200 ; 𝕊.end_headers 
+        ¿‹public›/𝐩(ON≔fn+".obj")≕F→.exists¬:
+            $ᴼᴱbash main.sh ⟦f⟧ ⟦F⟧󷹹
+        𝕊.wfile.write∘𝑦(ON, ‹utf-8›)
+    ⊢ do_GET(𝕊):
+        ρ, 𝚌, 𝚑 = 𝕊.path₁﹕, 200, ⍁
+        ¿ρ.lstrip(␛/)∈⍭"index.html ": 𝚋 = INDEX
+        ⸘safej("public",ρ)≕p→.exists:
+            𝚋 = ᵇ(p)
+            𝚑 󷸊󰌷 [‹Content-type text/plain›,
+                  ‹Content-Disposition attachment; filename="⟦p.name⟧"›]
+        ¡: 𝚋, 𝚌 = 𝑦, 400
+        𝕊.send_response∘𝚌
+        𝚑ᴍ⍭ꟿ𝕊.send_header
+        𝕊.end_headers  ; 𝕊.wfile.write∘𝚋
+
+‹Running HTTP server›☾
+HTTPServer((ipv4(0x000000), 1337), HTTP_Server).serve_forever

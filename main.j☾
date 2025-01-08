@@ -1,0 +1,18 @@
+© əs = 󱀝 div ‹›
+© əb = 󱀝 input {type ‹file›⍮ accept ".svg"⍮ 𝑆 display:none;};
+© ə𝔟 = 󱀝 button {onclick ⟦𝚲əb.click()⟧⍮ 𝑆 margin:10px;} ‹Upload SVG›
+əb.addEventListener("change", 󱟱 𝚲{
+    əs􋒷 = "Uploading…";
+    try {
+        © v = 󱫬 (󱫬 fetch("/upload", {
+                    method: "POST",
+                    body: əb.files₀ })).text();
+    catch(ε) {
+        print(ε);
+        əs􋒷 = ‹Error! ⟦ε⟧›;
+        throw ε; }
+    əs􋒷 = "Downloading OBJ…";
+    window.location.replace(v);
+    əs􋒷 = "Downloaded!";
+    setTimeout(𝚲əs􋒷=ᐦ, 3000); });
+󰈙.body􍪙(əb, ə𝔟, əs);
