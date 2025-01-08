@@ -7,12 +7,12 @@
         © v = 󱫬 (󱫬 fetch("/upload", {
                     method: "POST",
                     body: əb.files₀ })).text(); }
+        əs􋒷 = "Downloading OBJ…";
+        window.location.replace(v);
+        əs􋒷 = "Downloaded!";
+        setTimeout(𝚲əs􋒷=ᐦ, 3000);
     catch(ε) {
         print(ε);
         əs􋒷 = ‹Error! ⟦ε⟧›;
-        throw ε; }
-    əs􋒷 = "Downloading OBJ…";
-    window.location.replace(v);
-    əs􋒷 = "Downloaded!";
-    setTimeout(𝚲əs􋒷=ᐦ, 3000); });
+        throw ε; } });
 󰈙.body􍪙(əb, ə𝔟, əs);
