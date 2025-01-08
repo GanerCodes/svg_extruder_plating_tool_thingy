@@ -1,7 +1,7 @@
 © əs = 󱀝 div ‹›
 © əb = 󱀝 input {type ‹file›⍮ accept ".svg"⍮ 𝑆 display:none;};
-© ə𝔟 = 󱀝 button {onclick ⟦𝚲əb.click()⟧⍮ 𝑆 margin:10px;} ‹Upload SVG›
-© pat = location.pathname;
+© ə𝔟 = 󱀝 button {onclick ⟦𝚲əb.click()⟧⍮ 𝑆 margin:10px;width:175px;} ‹Upload SVG›
+© pat = location.href; location.pathname;
 © up_path = ‹⟦pat⟧/upload›;
 əb.addEventListener("change", 󱟱 𝚲{
     əs􋒷 = "Uploading…";
