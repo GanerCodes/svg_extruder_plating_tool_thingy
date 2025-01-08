@@ -6,7 +6,7 @@
     try {
         © v = 󱫬 (󱫬 fetch("/upload", {
                     method: "POST",
-                    body: əb.files₀ })).text();
+                    body: əb.files₀ })).text(); }
     catch(ε) {
         print(ε);
         əs􋒷 = ‹Error! ⟦ε⟧›;
