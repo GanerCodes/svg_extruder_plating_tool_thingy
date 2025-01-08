@@ -8,7 +8,7 @@
                     method: "POST",
                     body: əb.files₀ })).text();
         əs􋒷 = "Downloading OBJ…";
-        window.location.replace(v);
+        location.replace(‹⟦location.pathname⟧/⟦v⟧›);
         əs􋒷 = "Downloaded!";
         setTimeout(𝚲əs􋒷=ᐦ, 3000); }
     catch(ε) {
