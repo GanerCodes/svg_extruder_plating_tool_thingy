@@ -1,7 +1,9 @@
-#!/bin/bash
+#!/bin/bash -e
 #yes this script needs input sanitization
 
-set -e
+ffmpeg() { command ffmpeg -y -hide_banner -loglevel warning "$@"; }
+
+
 SIZE=2500
 # TM2=$(realpath "./trimesh2/bin.Linux64")
 MRG=$(realpath "./merge_obj.sh")
@@ -14,8 +16,8 @@ DR=$(mktemp -d)
 cp "$f_i" "$DR/in.svg"
 cd "$DR"
     echo "Moved to directory: $(pwd)"
-    ffmpeg -y -width "$SIZE" -height "$SIZE" -i "in.svg" -filter_complex "[0:v]pad=width=2550:height=2550:x=(ow-iw)/2:y=(oh-ih)/2:color=#00000000,geq='r=if(max(lt(alpha(X\,Y)\,5)\,gt(r(X\,Y)+g(X\,Y)+b(X\,Y)\,25))\,0\,255):g=if(max(lt(alpha(X\,Y)\,5)\,gt(r(X\,Y)+g(X\,Y)+b(X\,Y)\,25))\,0\,255):b=if(max(lt(alpha(X\,Y)\,5)\,gt(r(X\,Y)+g(X\,Y)+b(X\,Y)\,25))\,0\,255):a=if(max(lt(alpha(X\,Y)\,5)\,gt(r(X\,Y)+g(X\,Y)+b(X\,Y)\,25))\,0\,255)',split[α][β];[α]floodfill=x=0:y=0:s0=0:s1=0:s2=0:s3=0:d0=255:d1=0:d2=0:d3=255,geq='r=255-if(gt(g(X\,Y)-b(X\,Y)-r(X\,Y)\,254)\,255\,0):g=255-if(gt(g(X\,Y)-b(X\,Y)-r(X\,Y)\,254)\,255\,0):b=255-if(gt(g(X\,Y)-b(X\,Y)-r(X\,Y)\,254)\,255\,0):a=255-if(gt(g(X\,Y)-b(X\,Y)-r(X\,Y)\,254)\,255\,0)'[γ];[β][γ]blend=all_expr='if(gt(B\,254)\,if(gt(A\,250)\,255\,128)\,0)',lutrgb='r=negval:g=negval:b=negval'" "α.bmp"
-    ffmpeg -y -width "$SIZE" -height "$SIZE" -i "in.svg" -filter_complex "[0:v]pad=width=2550:height=2550:x=(ow-iw)/2:y=(oh-ih)/2:color=#00000000,geq='r=if(max(lt(alpha(X\,Y)\,5)\,gt(r(X\,Y)+g(X\,Y)+b(X\,Y)\,25))\,0\,255):g=if(max(lt(alpha(X\,Y)\,5)\,gt(r(X\,Y)+g(X\,Y)+b(X\,Y)\,25))\,0\,255):b=if(max(lt(alpha(X\,Y)\,5)\,gt(r(X\,Y)+g(X\,Y)+b(X\,Y)\,25))\,0\,255):a=if(max(lt(alpha(X\,Y)\,5)\,gt(r(X\,Y)+g(X\,Y)+b(X\,Y)\,25))\,0\,255)',split[α][β];[α]floodfill=x=0:y=0:s0=0:s1=0:s2=0:s3=0:d0=255:d1=0:d2=0:d3=255,geq='r=255-if(gt(g(X\,Y)-b(X\,Y)-r(X\,Y)\,254)\,255\,0):g=255-if(gt(g(X\,Y)-b(X\,Y)-r(X\,Y)\,254)\,255\,0):b=255-if(gt(g(X\,Y)-b(X\,Y)-r(X\,Y)\,254)\,255\,0):a=255-if(gt(g(X\,Y)-b(X\,Y)-r(X\,Y)\,254)\,255\,0)'[γ];[β][γ]blend=all_expr='if(gt(B\,254)\,if(gt(A\,250)\,255\,0)\,0)',lutrgb='r=negval:g=negval:b=negval'" "β.bmp"
+    ffmpeg -width "$SIZE" -height "$SIZE" -i "in.svg" -filter_complex "[0:v]pad=width=2550:height=2550:x=(ow-iw)/2:y=(oh-ih)/2:color=#00000000,geq='r=if(max(lt(alpha(X\,Y)\,5)\,gt(r(X\,Y)+g(X\,Y)+b(X\,Y)\,25))\,0\,255):g=if(max(lt(alpha(X\,Y)\,5)\,gt(r(X\,Y)+g(X\,Y)+b(X\,Y)\,25))\,0\,255):b=if(max(lt(alpha(X\,Y)\,5)\,gt(r(X\,Y)+g(X\,Y)+b(X\,Y)\,25))\,0\,255):a=if(max(lt(alpha(X\,Y)\,5)\,gt(r(X\,Y)+g(X\,Y)+b(X\,Y)\,25))\,0\,255)',split[α][β];[α]floodfill=x=0:y=0:s0=0:s1=0:s2=0:s3=0:d0=255:d1=0:d2=0:d3=255,geq='r=255-if(gt(g(X\,Y)-b(X\,Y)-r(X\,Y)\,254)\,255\,0):g=255-if(gt(g(X\,Y)-b(X\,Y)-r(X\,Y)\,254)\,255\,0):b=255-if(gt(g(X\,Y)-b(X\,Y)-r(X\,Y)\,254)\,255\,0):a=255-if(gt(g(X\,Y)-b(X\,Y)-r(X\,Y)\,254)\,255\,0)'[γ];[β][γ]blend=all_expr='if(gt(B\,254)\,if(gt(A\,250)\,255\,128)\,0)',lutrgb='r=negval:g=negval:b=negval'" "α.bmp"
+    ffmpeg -width "$SIZE" -height "$SIZE" -i "in.svg" -filter_complex "[0:v]pad=width=2550:height=2550:x=(ow-iw)/2:y=(oh-ih)/2:color=#00000000,geq='r=if(max(lt(alpha(X\,Y)\,5)\,gt(r(X\,Y)+g(X\,Y)+b(X\,Y)\,25))\,0\,255):g=if(max(lt(alpha(X\,Y)\,5)\,gt(r(X\,Y)+g(X\,Y)+b(X\,Y)\,25))\,0\,255):b=if(max(lt(alpha(X\,Y)\,5)\,gt(r(X\,Y)+g(X\,Y)+b(X\,Y)\,25))\,0\,255):a=if(max(lt(alpha(X\,Y)\,5)\,gt(r(X\,Y)+g(X\,Y)+b(X\,Y)\,25))\,0\,255)',split[α][β];[α]floodfill=x=0:y=0:s0=0:s1=0:s2=0:s3=0:d0=255:d1=0:d2=0:d3=255,geq='r=255-if(gt(g(X\,Y)-b(X\,Y)-r(X\,Y)\,254)\,255\,0):g=255-if(gt(g(X\,Y)-b(X\,Y)-r(X\,Y)\,254)\,255\,0):b=255-if(gt(g(X\,Y)-b(X\,Y)-r(X\,Y)\,254)\,255\,0):a=255-if(gt(g(X\,Y)-b(X\,Y)-r(X\,Y)\,254)\,255\,0)'[γ];[β][γ]blend=all_expr='if(gt(B\,254)\,if(gt(A\,250)\,255\,0)\,0)',lutrgb='r=negval:g=negval:b=negval'" "β.bmp"
     potrace -s "α.bmp" -o "α.svg"
     potrace -s "β.bmp" -o "β.svg"
     echo "linear_extrude(height=$h_1) import(\"α.svg\");" > "tool.scad"

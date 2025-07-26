@@ -5,16 +5,13 @@
 © up_path = ‹⟦pat⟧/upload›;
 əb.addEventListener("change", 󱟱 𝚲{
     əs􋒷 = "Uploading…";
-    try {
-        © v = 󱫬 (󱫬 fetch(up_path, {
-                    method: "POST",
-                    body: əb.files₀ })).text();
-        əs􋒷 = "Downloading OBJ…";
-        location.replace(‹⟦pat⟧/⟦v⟧›);
-        əs􋒷 = "Downloaded!";
-        setTimeout(𝚲əs􋒷=ᐦ, 3000); }
-    catch(ε) {
-        print(ε);
-        əs􋒷 = ‹Error! ⟦ε⟧›;
-        throw ε; } });
-󰈙.body􍪙(əb, ə𝔟, əs);
+    try { © v = 󱫬 (󱫬 fetch(up_path, { method: "POST",
+                                      body: əb.files₀ })).text();
+          əs􋒷 = "Downloading OBJ…";
+          location.replace(‹⟦pat⟧/⟦v⟧›);
+          əs􋒷 = "Downloaded!";
+          setTimeout(𝚲əs􋒷=ᐦ, 3000); }
+    catch(ε) { print(ε);
+               əs􋒷 = ‹Error! ⟦ε⟧›;
+               throw ε; } });
+󰈙.body􍪙(əb,ə𝔟,əs);
