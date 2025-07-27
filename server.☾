@@ -1,4 +1,7 @@
- 󷹇 sudo pacman -S qt5-base qt5-multimedia qscintilla-qt5 cgal opencsg eigen libzip
+🟑 󷹇
+pacman -Syu --needed --noconfirm --disable-download-timeout python potrace ffmpeg lib3mf base-devel cmake tbb qt5-base qt5-svg qt5-multimedia qscintilla-qt5 cgal opencsg eigen libzip glew bison flex make
+cmake -B build -DEXPERIMENTAL=1 && cmake --build build && cmake --install build
+🟑
 
 ⨡ http
 __dir__ cd
@@ -20,4 +23,4 @@ safej = 󰲣x 𝐩≕b/y≕p→.is_relative_to(b)⭜p⭝✗
                ¿safej(pub,𝚙)≕p→.exists¬: ↪400
                ↪ p ᵇ, ℵ(𝙲𝚃=‹text/plain›, 𝙲𝙳=‹attachment; filename="⟦p.name⟧"›)
 
-‹Running HTTP server›☾ ► server(ipv4(0x000000),1337)
+‹Running HTTP server›☾ ► server(0x000000 ipv4,1337)
