@@ -7,7 +7,7 @@ cmake -B build -DEXPERIMENTAL=1 && cmake --build build && cmake --install build
 __dir__ cd
 
 ‹public›𝐩􇀀pub → mkd
-INDEX = 𝑦(␛Ω 󰛔􊿑ⁱⁿᵈᵉˣ􋕝ʰᵗᵐˡ􊿒􍡧 ‹⟦joon_header⟧𝗻⟦transpile(‹main.j☾› )⟧›, ‹utf-8›)
+INDEX = 𝑦(␛Ω 󰛔􊿑ⁱⁿᵈᵉˣ􋕝ʰᵗᵐˡ􊿒􍡧 ‹⟦joon_header⟧𝗻⟦transpile_joon(‹main.j☾› )⟧›, ‹utf-8›)
 
 safej = 󰲣x 𝐩≕b/y≕p→.is_relative_to(b)⭜p⭝✗
 
